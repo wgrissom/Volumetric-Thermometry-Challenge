@@ -147,11 +147,12 @@ figure;hold on
 plot(res*tstep,worstErrSingle)
 plot(res*tstep,worstErrAve)
 plot(res*tstep,bestErrAve)
-ylabel 'Degrees Celsius'
-xlabel 'Seconds'
-legend('Single-point error, worst case','Averaged error, worst case','Averaged error, synchronized');
-
-return
+plot(0:10,ones(11,1),'k--');
+ylabel 'Peak Error (Degrees Celsius)'
+xlabel 'Frame Rate (Seconds)'
+legend('Single-point, worst case','Moving average, worst case','Moving average, synchronized');
+axis([1 10 0 5]);
+axis square
 
 %% 2DFT simulation
 disp '2DFT Temp Sampling'
@@ -199,6 +200,7 @@ end
 figure;hold on
 plot(res2DFT*dim*tstep,worstErr2DFT)
 plot(res2DFT*dim*tstep,bestErr2DFT)
+plot(1:10,ones(10,1),'k--');
 ylabel 'Degrees Celsius'
 xlabel 'Seconds'
 legend('2DFT error, worst case','2DFT error, synchronized');
@@ -295,8 +297,8 @@ plot(resSpiral*dim*tstep,bestErrSpiral)
 plot(1:10,ones(10,1),'k--');
 ylabel 'Peak Error (Degrees Celsius)'
 xlabel 'Frame Rate (Seconds)'
-legend('2DFT error, worst case','2DFT error, synchronized',...
-    'Spiral error, worst case','Spiral error, synchronized');
+legend('2DFT, worst case','2DFT, synchronized',...
+    'Spiral, worst case','Spiral, synchronized');
 axis([1 10 0 5]);
 axis square
 
